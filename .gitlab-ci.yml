@@ -1,0 +1,18 @@
+image: cirrusci/flutter:2.2.2
+
+stages:
+  - build
+
+variables:
+  LC_ALL: "en_US.UTF-8"
+  LANG: "en_US.UTF-8"
+
+build:release:
+  stage: build
+  script:
+    - flutter packages get
+    - flutter clean
+    - flutter build apk
+  artifacts:
+    paths:
+      - build/app/outputs/apk/release/app-release.apk
